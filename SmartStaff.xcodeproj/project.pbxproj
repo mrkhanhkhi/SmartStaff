@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF4D1E7F310900134DCB /* HomeVC.swift */; };
+		849FAF501E7F31D000134DCB /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF4F1E7F31D000134DCB /* SectionCell.swift */; };
+		849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF511E7F34C800134DCB /* NewsVC.swift */; };
+		849FAF541E7F34C800134DCB /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FAF521E7F34C800134DCB /* NewsVC.xib */; };
+		849FAF571E7F35AB00134DCB /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF551E7F35AB00134DCB /* NewsCell.swift */; };
+		849FAF581E7F35AB00134DCB /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FAF561E7F35AB00134DCB /* NewsCell.xib */; };
 		C689C7FE1E7B7CF900876CC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C7FD1E7B7CF900876CC6 /* AppDelegate.swift */; };
 		C689C8001E7B7CF900876CC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C7FF1E7B7CF900876CC6 /* ViewController.swift */; };
 		C689C8031E7B7CF900876CC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C689C8011E7B7CF900876CC6 /* Main.storyboard */; };
@@ -37,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		849FAF4D1E7F310900134DCB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		849FAF4F1E7F31D000134DCB /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		849FAF511E7F34C800134DCB /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		849FAF521E7F34C800134DCB /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
+		849FAF551E7F35AB00134DCB /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		849FAF561E7F35AB00134DCB /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		C689C7FA1E7B7CF900876CC6 /* SmartStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689C7FD1E7B7CF900876CC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C689C7FF1E7B7CF900876CC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				C6E27D411E7B86CC00A8189E /* TextfieldEffects */,
+				849FAF4F1E7F31D000134DCB /* SectionCell.swift */,
+				849FAF551E7F35AB00134DCB /* NewsCell.swift */,
+				849FAF561E7F35AB00134DCB /* NewsCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -156,6 +171,9 @@
 		C6E27D431E7B86DF00A8189E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				849FAF4D1E7F310900134DCB /* HomeVC.swift */,
+				849FAF511E7F34C800134DCB /* NewsVC.swift */,
+				849FAF521E7F34C800134DCB /* NewsVC.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -283,6 +301,8 @@
 			files = (
 				C689C80B1E7B7CF900876CC6 /* LaunchScreen.storyboard in Resources */,
 				C689C8081E7B7CF900876CC6 /* Assets.xcassets in Resources */,
+				849FAF581E7F35AB00134DCB /* NewsCell.xib in Resources */,
+				849FAF541E7F34C800134DCB /* NewsVC.xib in Resources */,
 				C689C8031E7B7CF900876CC6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,8 +329,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C689C8061E7B7CF900876CC6 /* SmartStaff.xcdatamodeld in Sources */,
+				849FAF571E7F35AB00134DCB /* NewsCell.swift in Sources */,
 				C689C8001E7B7CF900876CC6 /* ViewController.swift in Sources */,
+				849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */,
+				849FAF501E7F31D000134DCB /* SectionCell.swift in Sources */,
 				C689C7FE1E7B7CF900876CC6 /* AppDelegate.swift in Sources */,
+				849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */,
 				C689C82F1E7B83A600876CC6 /* HoshiTextField.swift in Sources */,
 				C689C8311E7B83F600876CC6 /* TextFieldEffects.swift in Sources */,
 			);
