@@ -16,10 +16,9 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func sectionButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newsVC = storyboard.instantiateViewController(withIdentifier: "NewsVC") as! NewsVC
-        self.navigationController?.pushViewController(newsVC, animated: true)
+    @IBAction func sectionButtonTapped(sender: UIButton) {
+        let newsVC = NewsVC()
+        self.navigationController?.pushViewController(newsVC, animated: true)  
     }
 
 }

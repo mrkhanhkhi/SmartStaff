@@ -1,0 +1,6 @@
+framework module Pods_SmartStaff {
+  umbrella header "Pods-SmartStaff-umbrella.h"
+
+  export *
+  module * { export * }
+}

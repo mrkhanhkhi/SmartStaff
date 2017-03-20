@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF4D1E7F310900134DCB /* HomeVC.swift */; };
-		849FAF501E7F31D000134DCB /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF4F1E7F31D000134DCB /* SectionCell.swift */; };
 		849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF511E7F34C800134DCB /* NewsVC.swift */; };
 		849FAF541E7F34C800134DCB /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FAF521E7F34C800134DCB /* NewsVC.xib */; };
 		849FAF571E7F35AB00134DCB /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF551E7F35AB00134DCB /* NewsCell.swift */; };
@@ -23,6 +22,10 @@
 		C689C8211E7B7CF900876CC6 /* SmartStaffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C8201E7B7CF900876CC6 /* SmartStaffUITests.swift */; };
 		C689C82F1E7B83A600876CC6 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C82E1E7B83A600876CC6 /* HoshiTextField.swift */; };
 		C689C8311E7B83F600876CC6 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C8301E7B83F600876CC6 /* TextFieldEffects.swift */; };
+		C68A4C831E7FE6490039A015 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68A4C821E7FE6490039A015 /* WebViewVC.swift */; };
+		C6EFC7291E7F816B000FC3D6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFC7281E7F816B000FC3D6 /* Constant.swift */; };
+		C6EFC72B1E7F823B000FC3D6 /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EFC72A1E7F823B000FC3D6 /* NewsArticle.swift */; };
+		CA912599D9DA4027505B17EB /* Pods_SmartStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0017C6CED79B7086293E71 /* Pods_SmartStaff.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E605BBC8F58244BEBAA3036 /* Pods-SmartStaff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartStaff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartStaff/Pods-SmartStaff.debug.xcconfig"; sourceTree = "<group>"; };
+		3A0FF5397CFEA36A770FA292 /* Pods-SmartStaff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartStaff.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartStaff/Pods-SmartStaff.release.xcconfig"; sourceTree = "<group>"; };
 		849FAF4D1E7F310900134DCB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		849FAF4F1E7F31D000134DCB /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		849FAF511E7F34C800134DCB /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		849FAF521E7F34C800134DCB /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
 		849FAF551E7F35AB00134DCB /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		849FAF561E7F35AB00134DCB /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		8C0017C6CED79B7086293E71 /* Pods_SmartStaff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartStaff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689C7FA1E7B7CF900876CC6 /* SmartStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689C7FD1E7B7CF900876CC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C689C7FF1E7B7CF900876CC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +70,9 @@
 		C689C8221E7B7CF900876CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C689C82E1E7B83A600876CC6 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		C689C8301E7B83F600876CC6 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		C68A4C821E7FE6490039A015 /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		C6EFC7281E7F816B000FC3D6 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C6EFC72A1E7F823B000FC3D6 /* NewsArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA912599D9DA4027505B17EB /* Pods_SmartStaff.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +108,8 @@
 				C689C8141E7B7CF900876CC6 /* SmartStaffTests */,
 				C689C81F1E7B7CF900876CC6 /* SmartStaffUITests */,
 				C689C7FB1E7B7CF900876CC6 /* Products */,
+				D8C735FF89599D874B63716A /* Pods */,
+				DA8D3B2E800B245C91699606 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +130,7 @@
 				C6E27D431E7B86DF00A8189E /* Controller */,
 				C6E27D421E7B86DA00A8189E /* Model */,
 				C6E27D401E7B86C300A8189E /* View */,
+				C6EFC7281E7F816B000FC3D6 /* Constant.swift */,
 			);
 			path = SmartStaff;
 			sourceTree = "<group>";
@@ -141,11 +153,27 @@
 			path = SmartStaffUITests;
 			sourceTree = "<group>";
 		};
+		C68A4C801E7FE6050039A015 /* NewsVC */ = {
+			isa = PBXGroup;
+			children = (
+				849FAF511E7F34C800134DCB /* NewsVC.swift */,
+				849FAF521E7F34C800134DCB /* NewsVC.xib */,
+			);
+			name = NewsVC;
+			sourceTree = "<group>";
+		};
+		C68A4C811E7FE6140039A015 /* WebViewVC */ = {
+			isa = PBXGroup;
+			children = (
+				C68A4C821E7FE6490039A015 /* WebViewVC.swift */,
+			);
+			name = WebViewVC;
+			sourceTree = "<group>";
+		};
 		C6E27D401E7B86C300A8189E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C6E27D411E7B86CC00A8189E /* TextfieldEffects */,
-				849FAF4F1E7F31D000134DCB /* SectionCell.swift */,
 				849FAF551E7F35AB00134DCB /* NewsCell.swift */,
 				849FAF561E7F35AB00134DCB /* NewsCell.xib */,
 			);
@@ -164,6 +192,7 @@
 		C6E27D421E7B86DA00A8189E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C6EFC72A1E7F823B000FC3D6 /* NewsArticle.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -172,8 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				849FAF4D1E7F310900134DCB /* HomeVC.swift */,
-				849FAF511E7F34C800134DCB /* NewsVC.swift */,
-				849FAF521E7F34C800134DCB /* NewsVC.xib */,
+				C68A4C811E7FE6140039A015 /* WebViewVC */,
+				C68A4C801E7FE6050039A015 /* NewsVC */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -192,6 +221,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D8C735FF89599D874B63716A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E605BBC8F58244BEBAA3036 /* Pods-SmartStaff.debug.xcconfig */,
+				3A0FF5397CFEA36A770FA292 /* Pods-SmartStaff.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA8D3B2E800B245C91699606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C0017C6CED79B7086293E71 /* Pods_SmartStaff.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,9 +245,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C689C8251E7B7CF900876CC6 /* Build configuration list for PBXNativeTarget "SmartStaff" */;
 			buildPhases = (
+				E5396D4826C3D9764CC79F38 /* [CP] Check Pods Manifest.lock */,
 				C689C7F61E7B7CF900876CC6 /* Sources */,
 				C689C7F71E7B7CF900876CC6 /* Frameworks */,
 				C689C7F81E7B7CF900876CC6 /* Resources */,
+				A0791E1F4FE24C944C427A4E /* [CP] Embed Pods Frameworks */,
+				87032FB0DCF1CDB74819B81F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -323,6 +372,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		87032FB0DCF1CDB74819B81F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartStaff/Pods-SmartStaff-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0791E1F4FE24C944C427A4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartStaff/Pods-SmartStaff-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5396D4826C3D9764CC79F38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C689C7F61E7B7CF900876CC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -330,9 +427,11 @@
 			files = (
 				C689C8061E7B7CF900876CC6 /* SmartStaff.xcdatamodeld in Sources */,
 				849FAF571E7F35AB00134DCB /* NewsCell.swift in Sources */,
+				C6EFC7291E7F816B000FC3D6 /* Constant.swift in Sources */,
+				C6EFC72B1E7F823B000FC3D6 /* NewsArticle.swift in Sources */,
+				C68A4C831E7FE6490039A015 /* WebViewVC.swift in Sources */,
 				C689C8001E7B7CF900876CC6 /* ViewController.swift in Sources */,
 				849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */,
-				849FAF501E7F31D000134DCB /* SectionCell.swift in Sources */,
 				C689C7FE1E7B7CF900876CC6 /* AppDelegate.swift in Sources */,
 				849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */,
 				C689C82F1E7B83A600876CC6 /* HoshiTextField.swift in Sources */,
@@ -486,6 +585,7 @@
 		};
 		C689C8261E7B7CF900876CC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E605BBC8F58244BEBAA3036 /* Pods-SmartStaff.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SmartStaff/Info.plist;
@@ -498,6 +598,7 @@
 		};
 		C689C8271E7B7CF900876CC6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A0FF5397CFEA36A770FA292 /* Pods-SmartStaff.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SmartStaff/Info.plist;
