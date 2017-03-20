@@ -2,20 +2,23 @@
 //  WebViewVC.swift
 //  SmartStaff
 //
-//  Created by Nguyen Duy Khanh on 3/20/17.
+//  Created by Admin on 3/21/17.
 //  Copyright © 2017 Nguyen Duy Khanh. All rights reserved.
 //
 
 import UIKit
 
-class WebViewVC: UIWebView {
+class WebViewVC: UIViewController {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var webView: UIWebView!
+    var ulr:String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let myURL = URL(string: ulr!)
+        let myURLRequest:URLRequest = URLRequest(url: myURL!)
+        webView.loadRequest(myURLRequest)
     }
-    */
+
 
 }

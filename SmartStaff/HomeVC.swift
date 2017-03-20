@@ -17,8 +17,29 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func sectionButtonTapped(sender: UIButton) {
-        let newsVC = NewsVC()
-        self.navigationController?.pushViewController(newsVC, animated: true)  
+        switch sender.tag {
+        case 1:
+            let newsVC = NewsVC()
+            self.navigationController?.pushViewController(newsVC, animated: true)
+            break
+        case 2:
+            let itSectionsVC = ITsectionVC()
+            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            break
+        case 3:
+            let itSectionsVC = ITsectionVC()
+            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            break
+        case 4:
+            let itSectionsVC = ITsectionVC()
+            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            break
+        default:
+            let itSectionsVC = ITsectionVC()
+            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            break
+        }
+
     }
 
 }

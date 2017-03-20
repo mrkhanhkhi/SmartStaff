@@ -65,5 +65,14 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var dict = articles[indexPath.row]
+        if let articleUrl = dict["url"] as? String {
+            let webViewController = WebViewVC()
+            webViewController.ulr = articleUrl
+        self.navigationController?.pushViewController(webViewController, animated: true)
+        }
+    }
 
 }

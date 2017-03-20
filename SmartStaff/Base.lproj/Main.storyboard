@@ -81,18 +81,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OZj-ce-Cxz">
+                                <rect key="frame" x="0.0" y="28" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Bxz-Nj-ZSJ"/>
+                                    <constraint firstAttribute="width" constant="375" id="l9U-rw-262"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OZj-ce-Cxz" secondAttribute="trailing" id="3BM-iG-ogG"/>
                             <constraint firstItem="ENI-eE-Fuj" firstAttribute="top" secondItem="KoT-zq-abn" secondAttribute="bottom" constant="59" id="6oW-SG-KiN"/>
                             <constraint firstItem="RdC-TD-OnW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="934-a9-E7f"/>
+                            <constraint firstItem="OZj-ce-Cxz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="CEd-vj-vAE"/>
                             <constraint firstItem="ENI-eE-Fuj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DB9-2B-vL3"/>
                             <constraint firstItem="KoT-zq-abn" firstAttribute="top" secondItem="RdC-TD-OnW" secondAttribute="bottom" constant="24" id="Gfu-ii-vF1"/>
+                            <constraint firstItem="OZj-ce-Cxz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lpl-Nm-5DE"/>
                             <constraint firstItem="KoT-zq-abn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RsF-pY-jyB"/>
                             <constraint firstItem="RdC-TD-OnW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SMh-gF-bto"/>
                             <constraint firstItem="ENI-eE-Fuj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XvJ-ub-y8i"/>
                             <constraint firstItem="RdC-TD-OnW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="186" id="iKc-Yv-I1Y"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ENI-eE-Fuj" secondAttribute="bottom" constant="268" id="jbb-gD-zRV"/>
+                            <constraint firstItem="RdC-TD-OnW" firstAttribute="top" secondItem="OZj-ce-Cxz" secondAttribute="bottom" constant="50" id="oYm-rU-x8t"/>
                             <constraint firstItem="KoT-zq-abn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uyt-sE-krT"/>
                         </constraints>
                     </view>
@@ -114,7 +124,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ZWU-pr-Gfh"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="notification" selectedImage="notification" id="ZWU-pr-Gfh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rb3-FM-GYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +156,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="4Wp-af-aSx"/>
+                    <tabBarItem key="tabBarItem" title="Item 2" image="setting" selectedImage="setting" id="4Wp-af-aSx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaX-19-bUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,8 +174,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-bW-bEP">
-                                <rect key="frame" x="0.0" y="60" width="375" height="80"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-bW-bEP">
+                                <rect key="frame" x="0.0" y="105" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
@@ -170,41 +186,53 @@
                                     <action selector="sectionButtonTappedWithSender:" destination="Evl-OE-1J7" eventType="touchUpInside" id="tNA-mr-Ngk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttl-UO-7uA">
-                                <rect key="frame" x="0.0" y="157" width="375" height="80"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttl-UO-7uA">
+                                <rect key="frame" x="0.0" y="202" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="IT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sectionButtonTappedWithSender:" destination="Evl-OE-1J7" eventType="touchUpInside" id="l4A-bk-Yra"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ych-17-QzX">
-                                <rect key="frame" x="0.0" y="255" width="375" height="80"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ych-17-QzX">
+                                <rect key="frame" x="0.0" y="300" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Từ khóa hot">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sectionButtonTappedWithSender:" destination="Evl-OE-1J7" eventType="touchUpInside" id="NOa-zI-HJm"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N36-N2-c6A">
-                                <rect key="frame" x="0.0" y="356" width="375" height="80"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N36-N2-c6A">
+                                <rect key="frame" x="0.0" y="401" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Tài liệu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sectionButtonTappedWithSender:" destination="Evl-OE-1J7" eventType="touchUpInside" id="q0W-Lq-raB"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4Q-xa-p0b">
-                                <rect key="frame" x="0.0" y="458" width="375" height="80"/>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4Q-xa-p0b">
+                                <rect key="frame" x="0.0" y="503" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Ghim">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sectionButtonTappedWithSender:" destination="Evl-OE-1J7" eventType="touchUpInside" id="aPa-vv-V94"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,6 +242,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkH-w4-OoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828" y="992.65367316341838"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Gi3-Pi-bFU">
+            <objects>
+                <viewController id="OPR-JU-VIg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nEW-qM-w64"/>
+                        <viewControllerLayoutGuide type="bottom" id="V1O-Ae-xlj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u7z-bT-CXl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2g-58-Efi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Tin tuc" id="kaY-ES-bRF">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="K64-PU-5NQ"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-Ku-dDb">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F2g-58-Efi" firstAttribute="top" secondItem="u7z-bT-CXl" secondAttribute="top" id="2sJ-i8-4cv"/>
+                            <constraint firstItem="F2g-58-Efi" firstAttribute="leading" secondItem="u7z-bT-CXl" secondAttribute="leading" id="GMl-fS-QbY"/>
+                            <constraint firstAttribute="trailing" secondItem="F2g-58-Efi" secondAttribute="trailing" id="HhC-Y3-HUR"/>
+                            <constraint firstItem="SRu-Ku-dDb" firstAttribute="leading" secondItem="u7z-bT-CXl" secondAttribute="leading" id="QJl-U6-Tvg"/>
+                            <constraint firstItem="SRu-Ku-dDb" firstAttribute="top" secondItem="F2g-58-Efi" secondAttribute="bottom" id="cVi-3Q-kby"/>
+                            <constraint firstItem="SRu-Ku-dDb" firstAttribute="top" secondItem="F2g-58-Efi" secondAttribute="bottom" id="dci-ZG-qDV"/>
+                            <constraint firstItem="V1O-Ae-xlj" firstAttribute="top" secondItem="SRu-Ku-dDb" secondAttribute="bottom" id="vJl-lx-khT"/>
+                            <constraint firstAttribute="trailing" secondItem="SRu-Ku-dDb" secondAttribute="trailing" id="zNG-rA-Xak"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oaw-92-smX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="1696.1019490254873"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rt8-rw-FnL">
@@ -234,11 +304,11 @@
             </objects>
             <point key="canvasLocation" x="1118" y="53"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="CHz-Mu-3fg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kd5-OA-GQJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="xXr-m7-i9h"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="xXr-m7-i9h"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pum-Lv-ov5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -254,4 +324,10 @@
             <point key="canvasLocation" x="888.79999999999995" y="992.65367316341838"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="32" height="32"/>
+        <image name="logo" width="544" height="192"/>
+        <image name="notification" width="32" height="32"/>
+        <image name="setting" width="32" height="32"/>
+    </resources>
 </document>
