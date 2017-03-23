@@ -11,20 +11,20 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     var articles = [[String:AnyObject]]()
-    var titles:[String] = []
-    var authors:[String] = []
-    var articleURLs:[String] = []
-    var imgURLs:[String] = []
+    var filteredNews = [NewsArticle]()
+    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "newsCell")
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.placeholder = "Tìm kiếm tin tức"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:searchBar)
         fetchArticles()
         // Do any additional setup after loading the view.
     }
@@ -74,5 +74,23 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         self.navigationController?.pushViewController(webViewController, animated: true)
         }
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+        } else {
+            inSearchMode = true
+            let lower = searchBar.text!.lowercased()
+            let searchPredicate = NSPredicate(format: "title CONTAINS[C] %@", lower)
+            filteredNews = (self.articles as NSArray).filtered(using: searchPredicate) as! [NewsArticle]
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+
 
 }

@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var sections = ["iOS","Android","Ruby",".NET","Python","Java","Javascript"]
-    
+    let sections = ["iOS","Android","Ruby","dotNET","Python","Java","Javascript"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +31,16 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ITsectionCell", for: indexPath) as! ITsectionCell
+        cell.sectionNameLabel.text = sections[indexPath.row]
+        cell.sectionImg.image = UIImage(named: sections[indexPath.row])
+        return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 150)
+    }
+}
   
 
-}
+

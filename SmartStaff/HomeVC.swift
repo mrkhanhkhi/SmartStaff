@@ -8,10 +8,12 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController,UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     let sections = ["Tin tức","IT","Từ khóa hot","Tài liệu","Ghim"]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
