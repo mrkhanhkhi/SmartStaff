@@ -14,5 +14,4 @@ import UIKit
     var author:String?
     var url:String?
     var imageUrl:String?
-    var articles = [[String:AnyObject]]()
  }

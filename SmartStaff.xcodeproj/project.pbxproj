@@ -13,6 +13,7 @@
 		840C5F971E808D2300A0ED5D /* ITsectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840C5F951E808D2300A0ED5D /* ITsectionCell.xib */; };
 		843DF38D1E80777100BE8A97 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DF38B1E80777100BE8A97 /* WebViewVC.swift */; };
 		843DF38E1E80777100BE8A97 /* WebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843DF38C1E80777100BE8A97 /* WebViewVC.xib */; };
+		84913F781E847484004ECA65 /* AFWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84913F771E847484004ECA65 /* AFWrapper.swift */; };
 		849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF4D1E7F310900134DCB /* HomeVC.swift */; };
 		849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FAF511E7F34C800134DCB /* NewsVC.swift */; };
 		849FAF541E7F34C800134DCB /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FAF521E7F34C800134DCB /* NewsVC.xib */; };
@@ -60,6 +61,7 @@
 		840C5F951E808D2300A0ED5D /* ITsectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ITsectionCell.xib; sourceTree = "<group>"; };
 		843DF38B1E80777100BE8A97 /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		843DF38C1E80777100BE8A97 /* WebViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewVC.xib; sourceTree = "<group>"; };
+		84913F771E847484004ECA65 /* AFWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFWrapper.swift; sourceTree = "<group>"; };
 		849FAF4D1E7F310900134DCB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		849FAF511E7F34C800134DCB /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		849FAF521E7F34C800134DCB /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				C6D21EE61E83B3840097F43B /* GlobalUtilities.swift */,
+				84913F771E847484004ECA65 /* AFWrapper.swift */,
 				C689C7FD1E7B7CF900876CC6 /* AppDelegate.swift */,
 				C689C7FF1E7B7CF900876CC6 /* ViewController.swift */,
 				C689C8071E7B7CF900876CC6 /* Assets.xcassets */,
@@ -485,6 +488,7 @@
 				C6EFC72B1E7F823B000FC3D6 /* NewsArticle.swift in Sources */,
 				C6D21EE71E83B3840097F43B /* GlobalUtilities.swift in Sources */,
 				840C5F961E808D2300A0ED5D /* ITsectionCell.swift in Sources */,
+				84913F781E847484004ECA65 /* AFWrapper.swift in Sources */,
 				843DF38D1E80777100BE8A97 /* WebViewVC.swift in Sources */,
 				C689C8001E7B7CF900876CC6 /* ViewController.swift in Sources */,
 				849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */,

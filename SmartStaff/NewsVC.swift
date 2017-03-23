@@ -14,8 +14,8 @@ import SDWebImage
 class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
-    var articles = [[String:AnyObject]]()
-    var filteredNews = [NewsArticle]()
+    var articles = [[String:String]]()
+    var filteredNews = [[String:String]]()
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
     override func viewDidLoad() {
@@ -30,17 +30,28 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     func fetchArticles() {
-        Alamofire.request(API_URL).responseJSON { response in
-            if let value = response.result.value {
-                let json = JSON(value)
-                if let articleData = json["articles"].arrayObject {
-                    self.articles = articleData as! [[String:AnyObject]]
-                }
-                if self.articles.count > 0 {
-                    self.tableView.reloadData()
-                }
+        AFWrapper.requestGETURL(API_URL, success: {
+            (JSONResponse) -> Void in
+            print(JSONResponse)
+            self.parseJSON(json: JSONResponse)
+            if self.articles.count > 0 {
+                self.tableView.reloadData()
             }
+        }) {
+            (error) -> Void in
+            print(error)
         }
+    }
+    
+    func parseJSON(json:JSON) {
+        for result in json["articles"].arrayValue {
+            let title = result["title"].stringValue
+            let author = result["author"].stringValue
+            let urlToImage = result["urlToImage"].stringValue
+            let articleObj = ["title": title, "author": author, "urlToImage": urlToImage]
+            articles.append(articleObj)
+        }
+        tableView.reloadData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,12 +64,17 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsCell
-        var dict = articles[indexPath.row]
-        if let imgURl = dict["urlToImage"] as? String {
+        if inSearchMode {
+            cell.titleLabel.text = filteredNews["title"]
+            cell.sourceLabel.text = filteredNews["author"]
+        } else {
+            cell.titleLabel.text = articles["title"]
+            cell.sourceLabel.text = articles["author"]
+        }
+        if let imgURl = articles["urlToImage"] {
             cell.thumbImage.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
         }
-        cell.titleLabel.text = dict["title"] as? String
-        cell.sourceLabel.text = dict["author"] as? String
+
         return cell
     }
     
@@ -68,7 +84,7 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var dict = articles[indexPath.row]
-        if let articleUrl = dict["url"] as? String {
+        if let articleUrl = dict["url"] {
             let webViewController = WebViewVC()
             webViewController.ulr = articleUrl
         self.navigationController?.pushViewController(webViewController, animated: true)
@@ -83,7 +99,7 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             inSearchMode = true
             let lower = searchBar.text!.lowercased()
             let searchPredicate = NSPredicate(format: "title CONTAINS[C] %@", lower)
-            filteredNews = (self.articles as NSArray).filtered(using: searchPredicate) as! [NewsArticle]
+            filteredNews = (self.articles as NSArray).filtered(using: searchPredicate) as! [[String : String]]
             tableView.reloadData()
         }
     }
