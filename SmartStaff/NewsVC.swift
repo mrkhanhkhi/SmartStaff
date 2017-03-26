@@ -16,16 +16,15 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     @IBOutlet weak var tableView: UITableView!
     var articles = [[String:String]]()
     var filteredNews = [[String:String]]()
-    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "newsCell")
         tableView.dataSource = self
         tableView.delegate = self
-        searchBar.placeholder = "Tìm kiếm tin tức"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:searchBar)
         fetchArticles()
+        drawNavBarUI(navigationItem: self.navigationItem)
         // Do any additional setup after loading the view.
     }
     
@@ -48,7 +47,8 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             let title = result["title"].stringValue
             let author = result["author"].stringValue
             let urlToImage = result["urlToImage"].stringValue
-            let articleObj = ["title": title, "author": author, "urlToImage": urlToImage]
+            let url = result["url"].stringValue
+            let articleObj = ["title": title, "author": author, "urlToImage": urlToImage,"url":url]
             articles.append(articleObj)
         }
         tableView.reloadData()
@@ -64,17 +64,12 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsCell
-        if inSearchMode {
-            cell.titleLabel.text = filteredNews["title"]
-            cell.sourceLabel.text = filteredNews["author"]
-        } else {
-            cell.titleLabel.text = articles["title"]
-            cell.sourceLabel.text = articles["author"]
-        }
-        if let imgURl = articles["urlToImage"] {
+        var dict = articles[indexPath.row]
+        if let imgURl = dict["urlToImage"] {
             cell.thumbImage.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
         }
-
+        cell.titleLabel.text = dict["title"]
+        cell.sourceLabel.text = dict["author"]
         return cell
     }
     

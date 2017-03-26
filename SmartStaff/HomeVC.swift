@@ -16,8 +16,9 @@ class HomeVC: UIViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavBarColor(navigationController: self.navigationController!)
     }
-
+    
     @IBAction func sectionButtonTapped(sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -29,12 +30,12 @@ class HomeVC: UIViewController,UISearchBarDelegate {
             self.navigationController?.pushViewController(itSectionsVC, animated: true)
             break
         case 3:
-            let itSectionsVC = ITsectionVC()
-            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            let hotTagsVC = HotTagsVC()
+            self.navigationController?.pushViewController(hotTagsVC, animated: true)
             break
         case 4:
-            let itSectionsVC = ITsectionVC()
-            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            let documentsVC = DocumentsVC()
+            self.navigationController?.pushViewController(documentsVC, animated: true)
             break
         default:
             let itSectionsVC = ITsectionVC()

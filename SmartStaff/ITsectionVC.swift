@@ -19,6 +19,7 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         collectionView.register(nibName, forCellWithReuseIdentifier: "ITsectionCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        drawNavBarUI(navigationItem: self.navigationItem)
         // Do any additional setup after loading the view.
     }
     

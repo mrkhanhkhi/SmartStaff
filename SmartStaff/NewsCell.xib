@@ -16,11 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nE-b0-cQP">
-                        <rect key="frame" x="116" y="103" width="196" height="21"/>
+                        <rect key="frame" x="116" y="102" width="196" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="196" id="fXT-iK-BSt"/>
                             <constraint firstAttribute="height" constant="21" id="k3C-Ow-FJa"/>
@@ -42,14 +42,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KR9-a6-b34">
+                        <rect key="frame" x="8" y="139" width="304" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="304" id="6gE-fl-cSC"/>
+                            <constraint firstAttribute="height" constant="1" id="ooj-VC-89O"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UjD-ZE-wiD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Gvi-9T-j0W"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="KR9-a6-b34" secondAttribute="bottom" constant="1" id="HSq-9S-sz0"/>
                     <constraint firstItem="ziu-Hf-gdR" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="KRl-Mz-HdI"/>
                     <constraint firstItem="UjD-ZE-wiD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mw7-wu-q4j"/>
+                    <constraint firstItem="KR9-a6-b34" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="XWy-CL-MBc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="9nE-b0-cQP" secondAttribute="bottom" constant="18" id="Xnk-1s-3lv"/>
+                    <constraint firstItem="KR9-a6-b34" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fio-mE-T48"/>
                     <constraint firstItem="ziu-Hf-gdR" firstAttribute="top" secondItem="UjD-ZE-wiD" secondAttribute="top" id="g2M-oc-7X1"/>
                     <constraint firstItem="ziu-Hf-gdR" firstAttribute="leading" secondItem="UjD-ZE-wiD" secondAttribute="trailing" constant="8" id="l6z-Qb-xdq"/>
+                    <constraint firstItem="KR9-a6-b34" firstAttribute="top" secondItem="UjD-ZE-wiD" secondAttribute="bottom" constant="15" id="lBd-iZ-Nct"/>
                     <constraint firstItem="9nE-b0-cQP" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ld5-cm-4tj"/>
                     <constraint firstItem="9nE-b0-cQP" firstAttribute="top" secondItem="ziu-Hf-gdR" secondAttribute="bottom" constant="19" id="xLT-VO-rTl"/>
                     <constraint firstItem="9nE-b0-cQP" firstAttribute="leading" secondItem="UjD-ZE-wiD" secondAttribute="trailing" constant="8" id="yOP-9z-MfV"/>

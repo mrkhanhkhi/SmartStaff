@@ -8,5 +8,6 @@ target 'SmartStaff' do
 pod ‘Alamofire’
 pod 'SwiftyJSON'
 pod 'SDWebImage'
+pod 'RAMAnimatedTabBarController'
 
 end

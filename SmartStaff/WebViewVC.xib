@@ -20,30 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="km3-HY-FKT">
-                    <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="km3-HY-FKT">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </webView>
-                <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QiI-HE-RbE">
-                    <rect key="frame" x="0.0" y="18" width="375" height="44"/>
-                    <items>
-                        <navigationItem title="Tin tuc" id="pgU-1M-NCG">
-                            <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="XBi-w4-x5g"/>
-                            <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="aaF-eb-EMN"/>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="QiI-HE-RbE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="00T-5v-5kv"/>
-                <constraint firstItem="QiI-HE-RbE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="C27-tb-PJn"/>
-                <constraint firstItem="km3-HY-FKT" firstAttribute="top" secondItem="QiI-HE-RbE" secondAttribute="bottom" id="Vul-PO-pa6"/>
-                <constraint firstItem="km3-HY-FKT" firstAttribute="top" secondItem="QiI-HE-RbE" secondAttribute="bottom" id="Yee-XR-lZb"/>
-                <constraint firstItem="km3-HY-FKT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gFT-du-hU0"/>
-                <constraint firstAttribute="bottom" secondItem="km3-HY-FKT" secondAttribute="bottom" id="qwE-1K-FCR"/>
-                <constraint firstAttribute="trailing" secondItem="km3-HY-FKT" secondAttribute="trailing" id="skw-EX-2al"/>
-                <constraint firstAttribute="trailing" secondItem="QiI-HE-RbE" secondAttribute="trailing" id="tUL-Ie-rDV"/>
+                <constraint firstAttribute="trailing" secondItem="km3-HY-FKT" secondAttribute="trailing" id="F07-n6-nNd"/>
+                <constraint firstItem="km3-HY-FKT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="icc-pZ-uYT"/>
+                <constraint firstItem="km3-HY-FKT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jpV-Ly-Jmd"/>
+                <constraint firstAttribute="bottom" secondItem="km3-HY-FKT" secondAttribute="bottom" id="sRp-vQ-VOk"/>
             </constraints>
             <point key="canvasLocation" x="26.5" y="51.5"/>
         </view>
