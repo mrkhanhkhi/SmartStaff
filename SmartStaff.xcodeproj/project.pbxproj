@@ -37,6 +37,7 @@
 		C689C8211E7B7CF900876CC6 /* SmartStaffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C8201E7B7CF900876CC6 /* SmartStaffUITests.swift */; };
 		C689C82F1E7B83A600876CC6 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C82E1E7B83A600876CC6 /* HoshiTextField.swift */; };
 		C689C8311E7B83F600876CC6 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689C8301E7B83F600876CC6 /* TextFieldEffects.swift */; };
+		C69721C01E88F855001D927C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69721BF1E88F855001D927C /* User.swift */; };
 		C69AE8561E8806580094AA1D /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69AE8541E8806580094AA1D /* MessagesCell.swift */; };
 		C69AE8571E8806580094AA1D /* MessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69AE8551E8806580094AA1D /* MessagesCell.xib */; };
 		C6B82AE11E84C1D9007EDAC4 /* HotTagsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B82ADF1E84C1D9007EDAC4 /* HotTagsVC.swift */; };
@@ -106,6 +107,7 @@
 		C689C8221E7B7CF900876CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C689C82E1E7B83A600876CC6 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		C689C8301E7B83F600876CC6 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		C69721BF1E88F855001D927C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C69AE8541E8806580094AA1D /* MessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		C69AE8551E8806580094AA1D /* MessagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
 		C6B82ADF1E84C1D9007EDAC4 /* HotTagsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTagsVC.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				C6EFC72A1E7F823B000FC3D6 /* NewsArticle.swift */,
+				C69721BF1E88F855001D927C /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */,
 				C669C06D1E84C5E0006E2FF4 /* HotTagsCell.swift in Sources */,
 				C69AE8561E8806580094AA1D /* MessagesCell.swift in Sources */,
+				C69721C01E88F855001D927C /* User.swift in Sources */,
 				C6B82AE11E84C1D9007EDAC4 /* HotTagsVC.swift in Sources */,
 				C689C82F1E7B83A600876CC6 /* HoshiTextField.swift in Sources */,
 				C689C8311E7B83F600876CC6 /* TextFieldEffects.swift in Sources */,

@@ -13,7 +13,7 @@ class MessagesVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var authors = ["Nguyen Tan Minh","Nguyen Hoang Tuan","Vu Minh Hoa"]
-    var createDate = ["21/02/2017","06/03/2017","07/01/2017","28/12/2016","29/11/2016","11/11/2016","18/12/2016"]
+    var messages = ["10h họp em nhé !","Trà đá không em ơi","Thông báo về việc chấm điểm dự án ABC.."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class MessagesVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         tableView.register(UINib(nibName: "MessagesCell", bundle: nil), forCellReuseIdentifier: "MessagesCell")
         tableView.delegate = self
         tableView.dataSource = self
+        self.tabBarController?.tabBarItem.badgeValue = "3"
         // Do any additional setup after loading the view.
     }
     
@@ -35,6 +36,7 @@ class MessagesVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesCell", for: indexPath) as! MessagesCell
         cell.fromLabel.text = authors[indexPath.row]
+        cell.msgTitleLabel.text = messages[indexPath.row]
         let image = UIImage(named: authors[indexPath.row])
         cell.authorImg?.image = image
         cell.authorImg?.layer.cornerRadius = (cell.authorImg?.frame.size.width)! / 2

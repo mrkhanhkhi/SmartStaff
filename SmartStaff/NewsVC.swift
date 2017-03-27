@@ -29,7 +29,7 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     func fetchArticles() {
-        AFWrapper.requestGETURL(API_URL, success: {
+        AFWrapper.requestGETURL(API_URL,headers:nil, success: {
             (JSONResponse) -> Void in
             print(JSONResponse)
             self.parseJSON(json: JSONResponse)

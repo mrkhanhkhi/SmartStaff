@@ -12,7 +12,8 @@ import SwiftyJSON
 
 class AFWrapper:NSObject {
     
-    class func requestGETURL(_ strURL: String, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
+    class func requestGETURL(_ strURL: String, headers:String?
+        , success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         Alamofire.request(strURL).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
@@ -28,7 +29,7 @@ class AFWrapper:NSObject {
         }
     }
     
-    class func requestPOSTURL(_ strURL : String, params : [String : AnyObject]?, headers : [String : String]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
+    class func requestPOSTURL(_ strURL : String, params : [String : Any]?, headers : [String : String]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
         
         Alamofire.request(strURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             

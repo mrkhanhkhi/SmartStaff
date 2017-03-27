@@ -9,4 +9,11 @@
 import Foundation
 
 let API_KEY = "94ce163f595c47f1a932bff06ff04900"
-let API_URL = "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=94ce163f595c47f1a932bff06ff04900"
+let API_URL = "http://103.18.7.212:32784/"
+
+public enum ApiURI:String {
+    case Login = "users/login"
+    case Document = "docs"
+    case ITsection = "postITs/categories"
+    case SearchTitles = "postITs/categories/"
+}
