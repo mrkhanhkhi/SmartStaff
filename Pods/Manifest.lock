@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - Locksmith (3.0.0)
   - RAMAnimatedTabBarController (2.1.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -8,16 +9,18 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Locksmith
   - RAMAnimatedTabBarController
   - SDWebImage
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   RAMAnimatedTabBarController: 128e0d71dc802766de575a3c59c6fdcc8e2f921b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: c3ec36bad2c9b13e2f1cc8dd2f6607e62adc455b
+PODFILE CHECKSUM: 88f001a6ed0ece08abf7f434cf73dd4edbc35ceb
 
 COCOAPODS: 1.1.1

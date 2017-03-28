@@ -10,6 +10,7 @@ import Foundation
 
 let API_KEY = "94ce163f595c47f1a932bff06ff04900"
 let API_URL = "http://103.18.7.212:32784/"
+let API_LOGIN_HEADER = ["Content-Type":"application/json"]
 
 public enum ApiURI:String {
     case Login = "users/login"

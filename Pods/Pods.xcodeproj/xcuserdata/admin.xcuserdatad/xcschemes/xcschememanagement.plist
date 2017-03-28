@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Locksmith.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SmartStaff.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RAMAnimatedTabBarController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,7 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>293316C866ED8F29366EBC37D38EDB3F</key>
+		<key>06DEF20B63FDAB5356B899AA1F607182</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5AE14349391A77B6B4983AAEB24A0CDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A3683824D3E555B73B9B4511846AAA2</key>
+		<key>B15DB7F7E55A170C4DEDCD9DB8BC6018</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DCEFEE0B9CEA6C6AF2503F708C8CEFD0</key>
+		<key>C7F727D48928BF47D913AFC48BB6A978</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFA25EC804DE7FE21D5D70A58B3DF6EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

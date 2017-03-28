@@ -34,7 +34,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kuL-Sp-gBv"/>
-                                    <segue destination="YdX-GA-ICi" kind="show" identifier="pushToTabbar" id="xc0-yG-gAM"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RdC-TD-OnW" customClass="HoshiTextField" customModule="SmartStaff" customModuleProvider="target">

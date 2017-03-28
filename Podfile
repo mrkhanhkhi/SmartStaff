@@ -9,5 +9,6 @@ pod ‘Alamofire’
 pod 'SwiftyJSON'
 pod 'SDWebImage'
 pod 'RAMAnimatedTabBarController'
+pod 'Locksmith'
 
 end

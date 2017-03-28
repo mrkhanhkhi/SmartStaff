@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
+import Locksmith
 
 class ViewController: UIViewController {
 
@@ -26,13 +28,28 @@ class ViewController: UIViewController {
 
     @IBAction func loginBtnPressed(_ sender: Any) {
         let param:Parameters = ["username":userNameTf.text!,"password":passwordTf.text!]
-        AFWrapper.requestPOSTURL("http://103.18.7.212:32784/users/login", params: param, headers: ["Content-Type":"application/json"], success: { response in
-            print(response)
-            self.performSegue(withIdentifier: "pushToTabbar", sender: nil)
-        }, failure: { error in
-            print(error)
-        })
-    }
-
+        Alamofire.request(UserRouter.Login(param)).responseJSON { response in
+            guard response.result.error == nil else {
+                // got an error in getting the data, need to handle it
+                print("error calling GET on /posts/1")
+                print(response.result.error!)
+                return
+            }
+            
+            if let value: AnyObject = response.result.value as AnyObject? {
+                // handle the results as JSON, without a bunch of nested if loops
+                print(value)
+                let user = JSON(value)
+                if let authCode = user["staff"]["authcode"].string {
+                    //At this point the user should have authenticated, store the session id and use it as you wish
+                    print(authCode)
+                } else {
+                    print("error detected")
+                }
+                }
+            }
+        }
+    
 }
+
 
