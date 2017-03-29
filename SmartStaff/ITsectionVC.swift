@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import SwiftyJSON
+import SDWebImage
+import KeychainAccess
+import Alamofire
 
 class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    let sections = ["iOS","Android","Ruby","dotNET","Python","Java","Javascript"]
+    var sections = [[String:String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +24,46 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         collectionView.delegate = self
         collectionView.dataSource = self
         drawNavBarUI(navigationItem: self.navigationItem)
+        fetchArticles()
         // Do any additional setup after loading the view.
     }
+    
+    func fetchArticles() {
+        let param:Parameters = ["size":8,"page":0]
+        let keychain = Keychain(server: "http://103.18.7.212:32784/", protocolType: .https)
+        let authCode = keychain["authCode"]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "authcode": authCode!
+        ]
+        print(authCode!)
+        Alamofire.request("http://103.18.7.212:32784/postITs/categories", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+            print(JSONResponse)
+            if JSONResponse.result.isSuccess {
+                let response = JSON(JSONResponse.result.value!)
+                self.parseJSON(json: response)
+                if self.sections.count > 0 {
+                    self.collectionView.reloadData()
+                }
+            } else {
+                let error : Error = JSONResponse.result.error!
+                print(error)
+            }
+            
+        }
+    }
+    
+    func parseJSON(json:JSON) {
+        for result in json["content"].arrayValue {
+            let title = result["title"].stringValue
+            let image = result["image"].stringValue
+            let name = result["name"].stringValue
+            let sectionObj = ["title": title, "image": image, "name":name]
+            sections.append(sectionObj)
+        }
+        collectionView.reloadData()
+    }
+
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -33,8 +75,11 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ITsectionCell", for: indexPath) as! ITsectionCell
-        cell.sectionNameLabel.text = sections[indexPath.row]
-        cell.sectionImg.image = UIImage(named: sections[indexPath.row])
+        var dict = sections[indexPath.row]
+        cell.sectionNameLabel.text = dict["name"]
+        if let imgURl = dict["image"] {
+            cell.sectionImg.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
+        }
         return cell
     }
     

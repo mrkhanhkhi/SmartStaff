@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import SwiftyJSON
+import SDWebImage
+import KeychainAccess
+import Alamofire
 
 class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
-    var documents = ["File 1","File 2","File 3","File 4","File 5","File 6","File 7"]
+    var documents = [[String:String]]()
     var createDate = ["21/02/2017","06/03/2017","07/01/2017","28/12/2016","29/11/2016","11/11/2016","18/12/2016"]
     
     override func viewDidLoad() {
@@ -20,8 +24,47 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         drawNavBarUI(navigationItem: self.navigationItem)
+        fetchArticles()
         // Do any additional setup after loading the view.
     }
+    
+    func fetchArticles() {
+        let param:Parameters = ["size":8,"page":0]
+        let keychain = Keychain(server: "http://103.18.7.212:32784/news?", protocolType: .https)
+        let authCode = keychain["authCode"]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "authcode": authCode!
+        ]
+        print(authCode!)
+        Alamofire.request("http://103.18.7.212:32784/docs", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+            print(JSONResponse)
+            if JSONResponse.result.isSuccess {
+                let response = JSON(JSONResponse.result.value!)
+                self.parseJSON(json: response)
+                if self.documents.count > 0 {
+                    self.tableView.reloadData()
+                }
+            } else {
+                let error : Error = JSONResponse.result.error!
+                print(error)
+            }
+            
+        }
+    }
+    
+    func parseJSON(json:JSON) {
+        for result in json["content"].arrayValue {
+            let title = result["title"].stringValue
+            let link = result["link"].stringValue
+            let id = result["id"].stringValue
+            let documentObj = ["title": title, "link": link, "id":id]
+            documents.append(documentObj)
+        }
+        tableView.reloadData()
+    }
+
+
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,8 +77,9 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "documentsCell", for: indexPath) as! DocumentsCell
-        cell.fileNameLabel.text = documents[indexPath.row]
-        cell.createDateLabel.text = createDate[indexPath.row]
+        var dict = documents[indexPath.row]
+        cell.fileNameLabel.text = dict["title"]
+        cell.createDateLabel.text = dict["link"]
         cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
         return cell
     }

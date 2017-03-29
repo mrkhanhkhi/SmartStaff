@@ -13,5 +13,5 @@ import UIKit
     var body:String?
     var category:String?
     var url:String?
-    var imageUrl:String?
+    var image:String?
  }

@@ -30,7 +30,7 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     func fetchArticles() {
-        let param:Parameters = ["size":10,"page":1]
+        let param:Parameters = ["size":8,"page":0]
         let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]
         let headers: HTTPHeaders = [
@@ -38,26 +38,29 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             "authcode": authCode!
         ]
         print(authCode!)
-        AFWrapper.requestGETURL(API_URL + "/news",params:param, headers:headers, success: {
-            (JSONResponse) -> Void in
+        Alamofire.request("http://103.18.7.212:32784/news?", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
             print(JSONResponse)
-            self.parseJSON(json: JSONResponse)
-            if self.articles.count > 0 {
-                self.tableView.reloadData()
+            if JSONResponse.result.isSuccess {
+                let response = JSON(JSONResponse.result.value!)
+                self.parseJSON(json: response)
+                if self.articles.count > 0 {
+                    self.tableView.reloadData()
+                }
+            } else {
+                let error : Error = JSONResponse.result.error!
+                print(error)
             }
-        }) {
-            (error) -> Void in
-            print(error)
+            
         }
     }
     
     func parseJSON(json:JSON) {
-        for result in json["articles"].arrayValue {
+        for result in json["content"].arrayValue {
             let title = result["title"].stringValue
-            let author = result["author"].stringValue
-            let urlToImage = result["urlToImage"].stringValue
-            let url = result["url"].stringValue
-            let articleObj = ["title": title, "author": author, "urlToImage": urlToImage,"url":url]
+            let category = result["category"].stringValue
+            let image = result["image"].stringValue
+            let id = result["id"].stringValue
+            let articleObj = ["title": title, "category": category, "image": image,"id":id]
             articles.append(articleObj)
         }
         tableView.reloadData()
@@ -74,11 +77,11 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsCell
         var dict = articles[indexPath.row]
-        if let imgURl = dict["urlToImage"] {
+        if let imgURl = dict["image"] {
             cell.thumbImage.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
         }
         cell.titleLabel.text = dict["title"]
-        cell.sourceLabel.text = dict["author"]
+        cell.sourceLabel.text = dict["category"]
         return cell
     }
     
