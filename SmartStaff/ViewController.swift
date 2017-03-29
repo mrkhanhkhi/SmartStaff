@@ -9,9 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import Locksmith
+import KeychainAccess
 
 class ViewController: UIViewController {
+    
+    let service = "Login"
+    let userAccount = "SmartStaffUser"
+    let key = "RandomKey"
 
     @IBOutlet weak var passwordTf: HoshiTextField!
     @IBOutlet weak var userNameTf: HoshiTextField!
@@ -31,7 +35,6 @@ class ViewController: UIViewController {
         Alamofire.request(UserRouter.Login(param)).responseJSON { response in
             guard response.result.error == nil else {
                 // got an error in getting the data, need to handle it
-                print("error calling GET on /posts/1")
                 print(response.result.error!)
                 return
             }
@@ -41,8 +44,12 @@ class ViewController: UIViewController {
                 print(value)
                 let user = JSON(value)
                 if let authCode = user["staff"]["authcode"].string {
-                    //At this point the user should have authenticated, store the session id and use it as you wish
                     print(authCode)
+                    let keychain = Keychain(server: API_URL, protocolType: .https)
+                    keychain["authCode"] = authCode
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    let tabbarVC = storyBoard.instantiateViewController(withIdentifier: "TabbarVC") as! TabbarVC
+                    self.present(tabbarVC, animated:true, completion:nil)
                 } else {
                     print("error detected")
                 }
@@ -50,6 +57,13 @@ class ViewController: UIViewController {
             }
         }
     
+    @IBAction func saveUserPassword(_ sender: UIButton) {
+            UserDefaults.standard.set(self.userNameTf.text!, forKey: "username")
+            UserDefaults.standard.set(self.passwordTf.text!, forKey: "username")
+    }
+    
+    func checkUserInfoFilled() {
+    }
 }
 
 

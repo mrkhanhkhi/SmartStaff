@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import KeychainAccess
 
 class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
@@ -29,7 +30,15 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     func fetchArticles() {
-        AFWrapper.requestGETURL(API_URL,headers:nil, success: {
+        let param:Parameters = ["size":10,"page":1]
+        let keychain = Keychain(server: API_URL, protocolType: .https)
+        let authCode = keychain["authCode"]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "authcode": authCode!
+        ]
+        print(authCode!)
+        AFWrapper.requestGETURL(API_URL + "/news",params:param, headers:headers, success: {
             (JSONResponse) -> Void in
             print(JSONResponse)
             self.parseJSON(json: JSONResponse)

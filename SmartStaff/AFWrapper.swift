@@ -9,15 +9,16 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import KeychainAccess
 
 class AFWrapper:NSObject {
     
-    class func requestGETURL(_ strURL: String, headers:String?
+    
+    class func requestGETURL(_ strURL: String, params:[String:Any]?,headers:HTTPHeaders?
         , success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         Alamofire.request(strURL).responseJSON { (responseObject) -> Void in
-            
+          
             print(responseObject)
-            
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 success(resJson)

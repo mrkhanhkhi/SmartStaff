@@ -9,9 +9,9 @@
 import UIKit
  
  class NewsArticle:NSObject {
-    var headline: String?
-    var desc:String?
-    var author:String?
+    var title: String?
+    var body:String?
+    var category:String?
     var url:String?
     var imageUrl:String?
  }
