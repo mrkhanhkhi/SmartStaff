@@ -23,21 +23,20 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.register(UINib(nibName: "DocumentsCell", bundle: nil), forCellReuseIdentifier: "documentsCell")
         tableView.delegate = self
         tableView.dataSource = self
-        drawNavBarUI(navigationItem: self.navigationItem)
         fetchArticles()
         // Do any additional setup after loading the view.
     }
     
     func fetchArticles() {
         let param:Parameters = ["size":8,"page":0]
-        let keychain = Keychain(server: "http://103.18.7.212:32784/news?", protocolType: .https)
+        let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "authcode": authCode!
         ]
         print(authCode!)
-        Alamofire.request("http://103.18.7.212:32784/docs", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+        Alamofire.request(API_URL_DOCUMENT, method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
             print(JSONResponse)
             if JSONResponse.result.isSuccess {
                 let response = JSON(JSONResponse.result.value!)

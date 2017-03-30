@@ -23,7 +23,6 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         collectionView.register(nibName, forCellWithReuseIdentifier: "ITsectionCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        drawNavBarUI(navigationItem: self.navigationItem)
         fetchArticles()
         // Do any additional setup after loading the view.
     }
@@ -37,7 +36,7 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
             "authcode": authCode!
         ]
         print(authCode!)
-        Alamofire.request("http://103.18.7.212:32784/postITs/categories", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+        Alamofire.request(API_URL_IT_SECTIONS, method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
             print(JSONResponse)
             if JSONResponse.result.isSuccess {
                 let response = JSON(JSONResponse.result.value!)

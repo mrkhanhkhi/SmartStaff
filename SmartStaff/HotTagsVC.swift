@@ -22,7 +22,6 @@ class HotTagsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.register(UINib(nibName: "HotTagsCell", bundle: nil), forCellReuseIdentifier: "hotTagsCell")
         tableView.delegate = self
         tableView.dataSource = self
-        drawNavBarUI(navigationItem: self.navigationItem)
         fetchArticles()
         // Do any additional setup after loading the view.
     }
