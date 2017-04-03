@@ -30,7 +30,6 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     func fetchArticles() {
-        let param:Parameters = ["size":8,"page":0]
         let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]
         let headers: HTTPHeaders = [
@@ -38,7 +37,7 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             "authcode": authCode!
         ]
         print(authCode!)
-        Alamofire.request("http://103.18.7.212:32784/news?", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+        Alamofire.request("http://103.18.7.212:32784/news?", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
             print(JSONResponse)
             if JSONResponse.result.isSuccess {
                 let response = JSON(JSONResponse.result.value!)
