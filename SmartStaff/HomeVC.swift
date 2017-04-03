@@ -12,12 +12,27 @@ class HomeVC: UIViewController,UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     let sections = ["Tin tức","IT","Từ khóa hot","Tài liệu","Ghim"]
+    let defaults = UserDefaults.standard
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarColor(navigationController: self.navigationController!)
-        displayAlertView()
+        validationPopup()
+    }
+    
+    func validationPopup() {
+        if let isDisplayPopUpOnHomeScr:Bool = defaults.value(forKey: "isDisplayPopUpOnHomeScr") as! Bool?
+        {
+            if isDisplayPopUpOnHomeScr == true
+            {
+                displayAlertView()
+            }
+            else
+            {
+                print("No popup")
+            }
+        }
     }
     
     @IBAction func sectionButtonTapped(sender: UIButton) {

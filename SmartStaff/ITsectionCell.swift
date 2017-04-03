@@ -9,6 +9,8 @@
 import UIKit
 
 class ITsectionCell: UICollectionViewCell {
+    
+    var section:Sections!
     @IBOutlet weak var sectionImg: UIImageView!
     @IBOutlet weak var sectionNameLabel: UILabel!
     override func awakeFromNib() {
@@ -16,5 +18,12 @@ class ITsectionCell: UICollectionViewCell {
         // Initialization code
     }
     
+    func configureCell(section:Sections) {
+        self.section = section
+        sectionNameLabel.text = self.section.title
+        if let imgURl = self.section.image {
+            sectionImg.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
+        }
+    }
 
 }

@@ -12,6 +12,7 @@ class DocumentsCell: UITableViewCell {
 
     @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var createDateLabel: UILabel!
+    var document:Documents!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,6 +22,11 @@ class DocumentsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(document:Documents) {
+        self.document = document
+        fileNameLabel.text = self.document.title
     }
     
 }

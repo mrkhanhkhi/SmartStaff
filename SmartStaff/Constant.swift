@@ -9,6 +9,9 @@
 import Foundation
 import KeychainAccess
 
+typealias DownloadComplete = () -> ()
+
+
 let API_URL = "http://103.18.7.212:32784/"
 let API_URL_LOGIN = "http://103.18.7.212:32784/users/login"
 let API_URL_DOCUMENT = "http://103.18.7.212:32784/docs"

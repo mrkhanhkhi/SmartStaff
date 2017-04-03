@@ -160,6 +160,7 @@ All rights reserved.</string>
                     <navigationItem key="navigationItem" id="8Yo-E5-jSC"/>
                     <connections>
                         <outlet property="passwordTf" destination="KoT-zq-abn" id="Wf1-8B-eSD"/>
+                        <outlet property="savePasswordBtn" destination="EqI-FP-n19" id="dEV-gT-geZ"/>
                         <outlet property="userNameTf" destination="RdC-TD-OnW" id="EH7-bN-JvA"/>
                     </connections>
                 </viewController>
@@ -235,6 +236,9 @@ All rights reserved.</string>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUz-K2-rdV">
                                 <rect key="frame" x="310" y="96" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="popUpSwitchPressed:" destination="K0W-xl-iUN" eventType="valueChanged" id="O2O-Kl-dOq"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lxK-Ov-WAq">
                                 <rect key="frame" x="310" y="152" width="51" height="31"/>
@@ -277,6 +281,11 @@ All rights reserved.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="fdT-eP-Sao"/>
+                    <connections>
+                        <outlet property="messageSettingSwitch" destination="eiJ-by-DS5" id="9CM-zp-B8E"/>
+                        <outlet property="popUpSettingSwitch" destination="XUz-K2-rdV" id="Kdr-pc-bpJ"/>
+                        <outlet property="pushNotifSettingSwitch" destination="lxK-Ov-WAq" id="1Fq-LN-75l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaX-19-bUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,7 +304,7 @@ All rights reserved.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-bW-bEP">
-                                <rect key="frame" x="0.0" y="105" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
@@ -307,9 +316,9 @@ All rights reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttl-UO-7uA">
-                                <rect key="frame" x="0.0" y="202" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="185" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="IT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -319,9 +328,9 @@ All rights reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ych-17-QzX">
-                                <rect key="frame" x="0.0" y="300" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="300" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.050277151169999999" green="0.62363582849999999" blue="0.40411302449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Từ khóa hot">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,9 +340,9 @@ All rights reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N36-N2-c6A">
-                                <rect key="frame" x="0.0" y="401" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="401" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.82145826680277778" green="0.34730041691111108" blue="0.75336941080833331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Tài liệu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -343,9 +352,9 @@ All rights reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4Q-xa-p0b">
-                                <rect key="frame" x="0.0" y="503" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="510" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96726447339999999" green="0.44126743080000003" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96726447339999999" green="0.77481777802222218" blue="0.40856146809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Ghim">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

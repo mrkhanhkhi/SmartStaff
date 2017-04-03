@@ -19,9 +19,24 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var passwordTf: HoshiTextField!
     @IBOutlet weak var userNameTf: HoshiTextField!
+    @IBOutlet weak var savePasswordBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        savePasswordBtn.setImage(UIImage(named: "login_checkbox_unchecked"), for: .normal)
+        savePasswordBtn.setImage(UIImage(named: "login_checkbox_checked"), for: .selected)
+        let keychain = Keychain(service: "SmartStaffID")
+        if let savedPW = keychain["password"] {
+            passwordTf.text = savedPW
+            
+            if let savedUser = keychain["username"] {
+                userNameTf.text = savedUser
+            }
+            savePasswordBtn.isSelected = true
+        } else {
+            savePasswordBtn.isSelected = false
+        }
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -58,12 +73,16 @@ class ViewController: UIViewController {
         }
     
     @IBAction func saveUserPassword(_ sender: UIButton) {
-            UserDefaults.standard.set(self.userNameTf.text!, forKey: "username")
-            UserDefaults.standard.set(self.passwordTf.text!, forKey: "username")
+        if !sender.isSelected {
+            sender.isSelected = true
+        } else {
+        let keychain = Keychain(service: "SmartStaffID")
+        keychain["username"] = userNameTf.text
+        keychain["password"] = passwordTf.text
     }
     
     func checkUserInfoFilled() {
     }
 }
-
+}
 

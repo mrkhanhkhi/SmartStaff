@@ -14,6 +14,8 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     
+    var newsArticle:NewsArticle!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +25,14 @@ class NewsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(article:NewsArticle) {
+        self.newsArticle = article
+        titleLabel.text = self.newsArticle.title
+        if let imgURl = self.newsArticle.image {
+            thumbImage.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
+        }
     }
     
 }

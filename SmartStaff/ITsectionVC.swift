@@ -15,7 +15,7 @@ import Alamofire
 class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var sections = [[String:String]]()
+    var sections = [Sections]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
             let title = result["title"].stringValue
             let image = result["image"].stringValue
             let name = result["name"].stringValue
-            let sectionObj = ["title": title, "image": image, "name":name]
+            let sectionObj = Sections(name: name, title: title, image: image)
             sections.append(sectionObj)
         }
         collectionView.reloadData()
@@ -74,11 +74,9 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ITsectionCell", for: indexPath) as! ITsectionCell
-        var dict = sections[indexPath.row]
-        cell.sectionNameLabel.text = dict["name"]
-        if let imgURl = dict["image"] {
-            cell.sectionImg.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
-        }
+        var section:Sections!
+        section = sections[indexPath.row]
+        cell.configureCell(section: section)
         return cell
     }
     

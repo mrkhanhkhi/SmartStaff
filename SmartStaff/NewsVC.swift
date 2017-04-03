@@ -15,7 +15,7 @@ import KeychainAccess
 class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate{
 
     @IBOutlet weak var tableView: UITableView!
-    var articles = [[String:String]]()
+    var articles = [NewsArticle]()
     var filteredNews = [[String:String]]()
     var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
     
@@ -68,7 +68,9 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
             let category = result["category"].stringValue
             let image = result["image"].stringValue
             let id = result["id"].stringValue
-            let articleObj = ["title": title, "category": category, "image": image,"id":id]
+            let body = result["body"].stringValue
+            let createTime = result["createTime"].stringValue
+            let articleObj = NewsArticle(title: title, body: body, category: category, image: image, id: id, createTime:createTime)
             articles.append(articleObj)
         }
         tableView.reloadData()
@@ -84,12 +86,9 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsCell
-        var dict = articles[indexPath.row]
-        if let imgURl = dict["image"] {
-            cell.thumbImage.sd_setImage(with: URL(string: imgURl), placeholderImage:nil)
-        }
-        cell.titleLabel.text = dict["title"]
-        cell.sourceLabel.text = dict["category"]
+        let article:NewsArticle!
+        article = articles[indexPath.row]
+        cell.configureCell(article: article)
         return cell
     }
     
@@ -98,12 +97,12 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var dict = articles[indexPath.row]
+       /* var dict = articles[indexPath.row]
         if let articleUrl = dict["url"] {
             let webViewController = WebViewVC()
             webViewController.ulr = articleUrl
         self.navigationController?.pushViewController(webViewController, animated: true)
-        }
+        }*/
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

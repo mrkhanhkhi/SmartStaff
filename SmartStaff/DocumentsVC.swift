@@ -15,7 +15,7 @@ import Alamofire
 class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
-    var documents = [[String:String]]()
+    var documents = [Documents]()
     var createDate = ["21/02/2017","06/03/2017","07/01/2017","28/12/2016","29/11/2016","11/11/2016","18/12/2016"]
     
     override func viewDidLoad() {
@@ -28,7 +28,6 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func fetchArticles() {
-        let param:Parameters = ["size":8,"page":0]
         let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]
         let headers: HTTPHeaders = [
@@ -57,7 +56,7 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             let title = result["title"].stringValue
             let link = result["link"].stringValue
             let id = result["id"].stringValue
-            let documentObj = ["title": title, "link": link, "id":id]
+            let documentObj = Documents(title: title, id: id, createTime: nil, url: link)
             documents.append(documentObj)
         }
         tableView.reloadData()
@@ -76,9 +75,9 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "documentsCell", for: indexPath) as! DocumentsCell
-        var dict = documents[indexPath.row]
-        cell.fileNameLabel.text = dict["title"]
-        cell.createDateLabel.text = dict["link"]
+        let document:Documents!
+        document = documents[indexPath.row]
+        cell.configureCell(document: document)
         cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
         return cell
     }
