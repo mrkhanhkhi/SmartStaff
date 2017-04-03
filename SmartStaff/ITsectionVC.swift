@@ -36,7 +36,7 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
             "authcode": authCode!
         ]
         print(authCode!)
-        Alamofire.request(API_URL_IT_SECTIONS, method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+        Alamofire.request(API_URL_IT_SECTIONS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
             print(JSONResponse)
             if JSONResponse.result.isSuccess {
                 let response = JSON(JSONResponse.result.value!)

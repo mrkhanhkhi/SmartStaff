@@ -13,6 +13,9 @@ class TabbarVC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let tabItem = self.tabBarController?.tabBar.items![2] {
+            tabItem.badgeValue = "3"
+        }
     }
-
+    
     }

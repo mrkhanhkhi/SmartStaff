@@ -35,7 +35,7 @@ class HotTagsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             "authcode": authCode!
         ]
         print(authCode!)
-        Alamofire.request("http://103.18.7.212:32784/postITs/hotkeys", method: .get, parameters: param, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
+        Alamofire.request("http://103.18.7.212:32784/postITs/hotkeys", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (JSONResponse) -> Void in
             print(JSONResponse)
             if JSONResponse.result.isSuccess {
                 let response = JSON(JSONResponse.result.value!)

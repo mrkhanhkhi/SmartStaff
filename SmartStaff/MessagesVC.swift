@@ -17,11 +17,12 @@ class MessagesVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavBarColor(navigationController: self.navigationController!)
         tableView.register(UINib(nibName: "MessagesCell", bundle: nil), forCellReuseIdentifier: "MessagesCell")
         tableView.delegate = self
         tableView.dataSource = self
-        self.tabBarController?.tabBarItem.badgeValue = "3"
+        navigationController?.navigationBar.barStyle = UIBarStyle.default
+        navigationController?.navigationBar.tintColor = UIColor.red
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.red]
         // Do any additional setup after loading the view.
     }
     

@@ -170,7 +170,7 @@ All rights reserved.</string>
         <!--Messages-->
         <scene sceneID="vgF-kc-IdN">
             <objects>
-                <viewController id="D2J-FL-rVm" customClass="MessagesVC" customModule="SmartStaff" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="messageVC" id="D2J-FL-rVm" customClass="MessagesVC" customModule="SmartStaff" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W6P-EC-TZG"/>
                         <viewControllerLayoutGuide type="bottom" id="W26-0z-J8i"/>
@@ -437,7 +437,7 @@ All rights reserved.</string>
         <scene sceneID="v6W-jQ-EVP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLE-24-JdV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" image="message" id="ZWU-pr-Gfh">
+                    <tabBarItem key="tabBarItem" title="Messages" image="message" badgeValue="3" id="ZWU-pr-Gfh">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
                                 <real key="value" value="0.0"/>

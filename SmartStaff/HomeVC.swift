@@ -17,6 +17,7 @@ class HomeVC: UIViewController,UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarColor(navigationController: self.navigationController!)
+        displayAlertView()
     }
     
     @IBAction func sectionButtonTapped(sender: UIButton) {
@@ -42,7 +43,23 @@ class HomeVC: UIViewController,UISearchBarDelegate {
             self.navigationController?.pushViewController(itSectionsVC, animated: true)
             break
         }
-
+    }
+    
+    func displayAlertView() {
+        let alertController = UIAlertController(title: "Thông báo", message: "Bạn có tin nhắn mới", preferredStyle: UIAlertControllerStyle.alert)
+        let DestructiveAction = UIAlertAction(title: "Để sau", style: UIAlertActionStyle.cancel) {
+            (result : UIAlertAction) -> Void in
+        }
+        
+        // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+        let okAction = UIAlertAction(title: "Đến xem", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            self.tabBarController?.selectedIndex = 2
+        }
+        
+        alertController.addAction(DestructiveAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }
