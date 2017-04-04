@@ -54,8 +54,8 @@ class HomeVC: UIViewController,UISearchBarDelegate {
             self.navigationController?.pushViewController(documentsVC, animated: true)
             break
         default:
-            let itSectionsVC = ITsectionVC()
-            self.navigationController?.pushViewController(itSectionsVC, animated: true)
+            let bookmarkVC = BookmarksVC()
+            self.navigationController?.pushViewController(bookmarkVC, animated: true)
             break
         }
     }

@@ -45,6 +45,9 @@
 		C69721C01E88F855001D927C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69721BF1E88F855001D927C /* User.swift */; };
 		C69AE8561E8806580094AA1D /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69AE8541E8806580094AA1D /* MessagesCell.swift */; };
 		C69AE8571E8806580094AA1D /* MessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69AE8551E8806580094AA1D /* MessagesCell.xib */; };
+		C6A014221E937EF60013A8C6 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A014211E937EF60013A8C6 /* ArticleList.swift */; };
+		C6A014271E9392CC0013A8C6 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A014251E9392CC0013A8C6 /* BookmarkCell.swift */; };
+		C6A014281E9392CC0013A8C6 /* BookmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A014261E9392CC0013A8C6 /* BookmarkCell.xib */; };
 		C6B82AE11E84C1D9007EDAC4 /* HotTagsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B82ADF1E84C1D9007EDAC4 /* HotTagsVC.swift */; };
 		C6B82AE21E84C1D9007EDAC4 /* HotTagsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6B82AE01E84C1D9007EDAC4 /* HotTagsVC.xib */; };
 		C6B82AE61E84C239007EDAC4 /* BookmarksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B82AE41E84C239007EDAC4 /* BookmarksVC.swift */; };
@@ -122,6 +125,9 @@
 		C69721BF1E88F855001D927C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C69AE8541E8806580094AA1D /* MessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		C69AE8551E8806580094AA1D /* MessagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
+		C6A014211E937EF60013A8C6 /* ArticleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
+		C6A014251E9392CC0013A8C6 /* BookmarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
+		C6A014261E9392CC0013A8C6 /* BookmarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookmarkCell.xib; sourceTree = "<group>"; };
 		C6B82ADF1E84C1D9007EDAC4 /* HotTagsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTagsVC.swift; sourceTree = "<group>"; };
 		C6B82AE01E84C1D9007EDAC4 /* HotTagsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotTagsVC.xib; sourceTree = "<group>"; };
 		C6B82AE41E84C239007EDAC4 /* BookmarksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksVC.swift; sourceTree = "<group>"; };
@@ -301,6 +307,24 @@
 			name = MessagesCell;
 			sourceTree = "<group>";
 		};
+		C6A014231E938DD00013A8C6 /* BookmarksVC */ = {
+			isa = PBXGroup;
+			children = (
+				C6B82AE41E84C239007EDAC4 /* BookmarksVC.swift */,
+				C6B82AE51E84C239007EDAC4 /* BookmarksVC.xib */,
+			);
+			name = BookmarksVC;
+			sourceTree = "<group>";
+		};
+		C6A014241E9392B50013A8C6 /* BookmarkCell */ = {
+			isa = PBXGroup;
+			children = (
+				C6A014251E9392CC0013A8C6 /* BookmarkCell.swift */,
+				C6A014261E9392CC0013A8C6 /* BookmarkCell.xib */,
+			);
+			name = BookmarkCell;
+			sourceTree = "<group>";
+		};
 		C6B82ADE1E84C1C0007EDAC4 /* HotTagsVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,18 +334,10 @@
 			name = HotTagsVC;
 			sourceTree = "<group>";
 		};
-		C6B82AE31E84C225007EDAC4 /* SettingsVC */ = {
-			isa = PBXGroup;
-			children = (
-				C6B82AE41E84C239007EDAC4 /* BookmarksVC.swift */,
-				C6B82AE51E84C239007EDAC4 /* BookmarksVC.xib */,
-			);
-			name = SettingsVC;
-			sourceTree = "<group>";
-		};
 		C6E27D401E7B86C300A8189E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C6A014241E9392B50013A8C6 /* BookmarkCell */,
 				C69AE8531E8806190094AA1D /* MessagesCell */,
 				C669C06A1E84C5BF006E2FF4 /* HotTags Cell */,
 				840C5F931E808D0400A0ED5D /* ITsection Cell */,
@@ -350,6 +366,7 @@
 				84BD6B8F1E8C62E100CF7027 /* Documents.swift */,
 				84BD6B911E8C6B0A00CF7027 /* Sections.swift */,
 				84BD6B931E8C6D0800CF7027 /* HotTags.swift */,
+				C6A014211E937EF60013A8C6 /* ArticleList.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -360,8 +377,8 @@
 				849FAF4D1E7F310900134DCB /* HomeVC.swift */,
 				C669C07C1E84F9D0006E2FF4 /* SettingVC.swift */,
 				C669C07E1E84F9EA006E2FF4 /* MessagesVC.swift */,
+				C6A014231E938DD00013A8C6 /* BookmarksVC */,
 				C669C06F1E84C8EA006E2FF4 /* DocumentsVC */,
-				C6B82AE31E84C225007EDAC4 /* SettingsVC */,
 				C6B82ADE1E84C1C0007EDAC4 /* HotTagsVC */,
 				C68A4C811E7FE6140039A015 /* WebViewVC */,
 				C68A4C801E7FE6050039A015 /* NewsVC */,
@@ -526,6 +543,7 @@
 				C669C0771E84C9EC006E2FF4 /* DocumentsVC.xib in Resources */,
 				840C5F911E808CCC00A0ED5D /* ITsectionVC.xib in Resources */,
 				C69AE8571E8806580094AA1D /* MessagesCell.xib in Resources */,
+				C6A014281E9392CC0013A8C6 /* BookmarkCell.xib in Resources */,
 				C689C8081E7B7CF900876CC6 /* Assets.xcassets in Resources */,
 				C669C06E1E84C5E0006E2FF4 /* HotTagsCell.xib in Resources */,
 				840C5F971E808D2300A0ED5D /* ITsectionCell.xib in Resources */,
@@ -609,6 +627,7 @@
 				C6B82AE61E84C239007EDAC4 /* BookmarksVC.swift in Sources */,
 				C669C07D1E84F9D0006E2FF4 /* SettingVC.swift in Sources */,
 				C689C8061E7B7CF900876CC6 /* SmartStaff.xcdatamodeld in Sources */,
+				C6A014271E9392CC0013A8C6 /* BookmarkCell.swift in Sources */,
 				849FAF571E7F35AB00134DCB /* NewsCell.swift in Sources */,
 				C6EFC7291E7F816B000FC3D6 /* Constant.swift in Sources */,
 				C669C07A1E84CAB4006E2FF4 /* DocumentsCell.swift in Sources */,
@@ -624,6 +643,7 @@
 				843DF38D1E80777100BE8A97 /* WebViewVC.swift in Sources */,
 				C689C8001E7B7CF900876CC6 /* ViewController.swift in Sources */,
 				849FAF531E7F34C800134DCB /* NewsVC.swift in Sources */,
+				C6A014221E937EF60013A8C6 /* ArticleList.swift in Sources */,
 				C689C7FE1E7B7CF900876CC6 /* AppDelegate.swift in Sources */,
 				849FAF4E1E7F310900134DCB /* HomeVC.swift in Sources */,
 				84BD6B941E8C6D0800CF7027 /* HotTags.swift in Sources */,
@@ -787,6 +807,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E605BBC8F58244BEBAA3036 /* Pods-SmartStaff.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SmartStaff/SmartStaff.entitlements;
 				DEVELOPMENT_TEAM = GYZ872E74T;
@@ -802,6 +823,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A0FF5397CFEA36A770FA292 /* Pods-SmartStaff.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SmartStaff/SmartStaff.entitlements;
 				DEVELOPMENT_TEAM = GYZ872E74T;

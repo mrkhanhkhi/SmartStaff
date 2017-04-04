@@ -10,21 +10,25 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
+import RealmSwift
+
  
- class NewsArticle:NSObject {
-    var title: String?
-    var body:String?
-    var category:String?
-    var createTime:String?
-    var image:String?
-    var id:String?
+ class NewsArticle:Object {
+    dynamic var title: String?
+    dynamic var body:String?
+    dynamic var category:String?
+    dynamic var createTime:String?
+    dynamic var image:String?
+    dynamic var id:String?
  
-    init (title:String, body:String, category:String, image:String, id:String, createTime:String) {
-    self.title = title
-    self.body = body
-    self.category = category
-    self.image = image
-    self.id = id
-    self.createTime = createTime
+    convenience init (title:String, body:String, category:String, image:String, id:String, createTime:String) {
+        self.init()
+        self.title = title
+        self.body = body
+        self.category = category
+        self.image = image
+        self.id = id
+        self.createTime = createTime
     }
+    
 }

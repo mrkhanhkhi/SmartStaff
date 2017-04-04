@@ -13,9 +13,6 @@ import KeychainAccess
 
 class ViewController: UIViewController {
     
-    let service = "Login"
-    let userAccount = "SmartStaffUser"
-    let key = "RandomKey"
 
     @IBOutlet weak var passwordTf: HoshiTextField!
     @IBOutlet weak var userNameTf: HoshiTextField!
@@ -79,10 +76,7 @@ class ViewController: UIViewController {
         let keychain = Keychain(service: "SmartStaffID")
         keychain["username"] = userNameTf.text
         keychain["password"] = passwordTf.text
+        }
     }
-    
-    func checkUserInfoFilled() {
-    }
-}
 }
 

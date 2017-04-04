@@ -16,7 +16,7 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
 
     @IBOutlet weak var tableView: UITableView!
     var articles = [NewsArticle]()
-    var filteredNews = [[String:String]]()
+    var filteredNews = [NewsArticle]()
     var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
     
     override func viewDidLoad() {
@@ -81,13 +81,21 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        if inSearchMode {
+            return filteredNews.count
+        } else {
+            return articles.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsCell
         let article:NewsArticle!
-        article = articles[indexPath.row]
+        if inSearchMode {
+            article = filteredNews[indexPath.row]
+        } else {
+            article = articles[indexPath.row]
+        }
         cell.configureCell(article: article)
         return cell
     }
@@ -97,16 +105,30 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       /* var dict = articles[indexPath.row]
-        if let articleUrl = dict["url"] {
+        let article = articles[indexPath.row]
+        if let articleUrl = article.body {
             let webViewController = WebViewVC()
             webViewController.ulr = articleUrl
+            webViewController.article = article
         self.navigationController?.pushViewController(webViewController, animated: true)
-        }*/
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let param:Parameters = ["size":8,"page":0]
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            tableView.reloadData()
+        } else {
+            inSearchMode = true
+            let lower = searchBar.text!.lowercased()
+            filteredNews = articles.filter({$0.title?.range(of: lower) != nil})
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.articles.removeAll()
         let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]
         let headers: HTTPHeaders = [
@@ -117,18 +139,12 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
             print(JSONResponse)
             if JSONResponse.result.isSuccess {
                 let response = JSON(JSONResponse.result.value!)
-                self.articles.removeAll()
                 self.parseJSON(json: response)
             } else {
                 let error : Error = JSONResponse.result.error!
                 print(error)
             }
-            
         }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         view.endEditing(true)
     }
 

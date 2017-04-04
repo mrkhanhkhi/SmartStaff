@@ -7,18 +7,37 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 class WebViewVC: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     var ulr:String?
+    let articleList = ArticleList()
+    var article = NewsArticle()
+    var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myURL = URL(string: ulr!)
-        let myURLRequest:URLRequest = URLRequest(url: myURL!)
-        webView.loadRequest(myURLRequest)
+        webView.loadHTMLString(ulr!, baseURL: nil)
+        drawNavBarUI(navigationItem: self.navigationItem)
     }
-
+    
+    func drawNavBarUI(navigationItem:UINavigationItem) {
+        let bookmarkBtn = UIButton(type: .custom)
+        bookmarkBtn.setImage(UIImage(named: "bookmark"), for: .normal)
+        bookmarkBtn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let item1 = UIBarButtonItem(image: #imageLiteral(resourceName: "favortie"), style: .done, target: self, action: #selector(saveFavoriteArticle))
+        navigationItem.setRightBarButtonItems([item1,UIBarButtonItem(customView:searchBar)], animated: true)
+    }
+    
+    func saveFavoriteArticle() {
+        articleList.articles.append(article)
+        try! realm.write {
+            realm.add(articleList)
+        }
+        print(articleList)
+    }
 
 }

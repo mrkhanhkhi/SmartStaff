@@ -30,7 +30,6 @@ class SettingVC: UIViewController {
                 popUpSettingSwitch.isOn = false
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func popUpSwitchPressed(_ sender: Any) {

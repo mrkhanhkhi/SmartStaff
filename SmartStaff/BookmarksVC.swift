@@ -7,30 +7,52 @@
 //
 
 import UIKit
+import RealmSwift
 
-class BookmarksVC: UIViewController {
-
+class BookmarksVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    var list : Results<ArticleList>!
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "BookmarkCell", bundle: nil), forCellReuseIdentifier: "bookmarkCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        readTasksAndUpdateUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func readTasksAndUpdateUI(){
+        list = realm.objects(ArticleList.self)
+        self.tableView.setEditing(false, animated: true)
+        self.tableView.reloadData()
+        print(list)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return list.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let dict = list[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell", for: indexPath) as! BookmarkCell
+        cell.titleLabel.text = dict.articles[indexPath.row].title
+        return cell
+        
+    }
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+////        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
+////    
+////        }
+////        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
+////
+////        }
+//    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
 }
