@@ -19,15 +19,9 @@ class BookmarksVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.register(UINib(nibName: "BookmarkCell", bundle: nil), forCellReuseIdentifier: "bookmarkCell")
         tableView.delegate = self
         tableView.dataSource = self
-        readTasksAndUpdateUI()
+        self.tableView.reloadData()
     }
 
-    func readTasksAndUpdateUI(){
-        list = realm.objects(ArticleList.self)
-        self.tableView.setEditing(false, animated: true)
-        self.tableView.reloadData()
-        print(list)
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {

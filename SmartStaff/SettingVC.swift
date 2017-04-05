@@ -41,4 +41,5 @@ class SettingVC: UIViewController {
             defaults.synchronize()
         }
     }
+
 }

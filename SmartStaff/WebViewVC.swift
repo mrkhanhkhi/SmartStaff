@@ -15,7 +15,8 @@ class WebViewVC: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     var ulr:String?
     let articleList = ArticleList()
-    var article = NewsArticle()
+    var article:NewsArticle?
+    var list : Results<ArticleList>!
     var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
     
     override func viewDidLoad() {
@@ -33,9 +34,8 @@ class WebViewVC: UIViewController {
     }
     
     func saveFavoriteArticle() {
-        articleList.articles.append(article)
         try! realm.write {
-            realm.add(articleList)
+            articleList.articles.append(article!)
         }
         print(articleList)
     }
