@@ -114,6 +114,8 @@ class NewsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
         }
     }
     
+    /*Search Bar */
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text == "" {
             inSearchMode = false

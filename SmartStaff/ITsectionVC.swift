@@ -23,11 +23,11 @@ class ITsectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         collectionView.register(nibName, forCellWithReuseIdentifier: "ITsectionCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        fetchArticles()
+        fetchSections()
         // Do any additional setup after loading the view.
     }
     
-    func fetchArticles() {
+    func fetchSections() {
         let param:Parameters = ["size":8,"page":0]
         let keychain = Keychain(server: "http://103.18.7.212:32784/", protocolType: .https)
         let authCode = keychain["authCode"]

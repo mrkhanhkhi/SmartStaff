@@ -22,11 +22,11 @@ class HotTagsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.register(UINib(nibName: "HotTagsCell", bundle: nil), forCellReuseIdentifier: "hotTagsCell")
         tableView.delegate = self
         tableView.dataSource = self
-        fetchArticles()
+        fetchTags()
         // Do any additional setup after loading the view.
     }
     
-    func fetchArticles() {
+    func fetchTags() {
         let param:Parameters = ["size":8,"page":0]
         let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]

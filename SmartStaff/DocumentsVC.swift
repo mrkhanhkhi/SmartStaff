@@ -23,11 +23,10 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.register(UINib(nibName: "DocumentsCell", bundle: nil), forCellReuseIdentifier: "documentsCell")
         tableView.delegate = self
         tableView.dataSource = self
-        fetchArticles()
-        // Do any additional setup after loading the view.
+        fetchDocuments()
     }
     
-    func fetchArticles() {
+    func fetchDocuments() {
         let keychain = Keychain(server: API_URL, protocolType: .https)
         let authCode = keychain["authCode"]
         let headers: HTTPHeaders = [
@@ -62,9 +61,6 @@ class DocumentsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.reloadData()
     }
 
-
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
